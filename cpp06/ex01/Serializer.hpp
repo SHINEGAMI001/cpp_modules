@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlachhab <hlachhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/19 21:42:49 by hlachhab          #+#    #+#             */
-/*   Updated: 2025/07/22 19:20:08 by hlachhab         ###   ########.fr       */
+/*   Created: 2025/07/22 19:32:46 by hlachhab          #+#    #+#             */
+/*   Updated: 2025/07/22 20:46:19 by hlachhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #pragma once
 # include <iostream>
-# include <string> //string class
-# include <iomanip> //set_precision
 
-class ScalarConverter{
+typedef struct Data{
+	std::string person_name;
+	int			age;
+
+}Data;
+
+class Serializer{
 	private:
-	
-	public:
-		ScalarConverter();
-		ScalarConverter(const ScalarConverter &other);
-		~ScalarConverter();
-		ScalarConverter &operator=(const ScalarConverter &other);
-
-		class CantConvertException : public std::exception{
-			const char * what() const throw();
-		};
+		Serializer();
+		Serializer(const Serializer &other);
 		
-		static void convert(std::string str);
+	public:
+		~Serializer();
+	
+		uintptr_t serializer(Data *ptr);
+		Data* deserializer(uintptr_t raw);
 	
 };

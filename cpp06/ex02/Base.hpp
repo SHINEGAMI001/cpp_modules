@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlachhab <hlachhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/19 21:42:49 by hlachhab          #+#    #+#             */
-/*   Updated: 2025/07/22 19:20:08 by hlachhab         ###   ########.fr       */
+/*   Created: 2025/07/22 22:24:09 by hlachhab          #+#    #+#             */
+/*   Updated: 2025/07/22 22:25:21 by hlachhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 # include <iostream>
-# include <string> //string class
-# include <iomanip> //set_precision
 
-class ScalarConverter{
-	private:
-	
-	public:
-		ScalarConverter();
-		ScalarConverter(const ScalarConverter &other);
-		~ScalarConverter();
-		ScalarConverter &operator=(const ScalarConverter &other);
-
-		class CantConvertException : public std::exception{
-			const char * what() const throw();
-		};
-		
-		static void convert(std::string str);
-	
+class Base{
+	public :
+		virtual ~Base();
 };
+
+class A : public Base{};
+class B : public Base{};
+class C : public Base{};
