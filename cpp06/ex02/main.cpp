@@ -6,7 +6,7 @@
 /*   By: hlachhab <hlachhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 19:39:42 by hlachhab          #+#    #+#             */
-/*   Updated: 2025/07/23 21:57:23 by hlachhab         ###   ########.fr       */
+/*   Updated: 2025/07/25 21:33:28 by hlachhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,36 +45,41 @@ void identify(Base *base_ptr)
 
 void identify(Base &base_ref)
 {
-	void * handle_unused = NULL;
-	Base & unused_cast = (Base &)handle_unused;
-	// std::cout << "adress of null : " << &unused_cast << std::endl;
-	try{
-		unused_cast = dynamic_cast<A&>(base_ref);
-		std::cout << "A is the identified one" << std::endl;
-	}catch(std::exception &e)
-	{
+	if ((Base*)&base_ref){
 		try{
-			unused_cast = dynamic_cast<B&>(base_ref);
-			std::cout << "B is the identified one" << std::endl;
+			A& a_cast = dynamic_cast<A&>(base_ref);
+			(void)a_cast;
+			std::cout << "A is the identified one" << std::endl;
 		}catch(std::exception &e)
 		{
 			try{
-			unused_cast = dynamic_cast<C&>(base_ref);
-			std::cout << "C is the identified one" << std::endl;	
+				B& b_cast = dynamic_cast<B&>(base_ref);
+				(void)b_cast;
+				std::cout << "B is the identified one" << std::endl;
 			}catch(std::exception &e)
 			{
-				// (void)unused_cast;
-				std::cout << "no identified derived class : " << std::endl;
+				try{
+				C& c_cast = dynamic_cast<C&>(base_ref);
+				(void)c_cast;
+				std::cout << "C is the identified one" << std::endl;	
+				}catch(std::exception &e)
+				{
+					// (void)unused_cast;
+					std::cout << "no identified derived class : " << e.what() << std::endl;
+				}
 			}
 		}
 	}
-	
+	else{
+		
+		std::cout << "error: base_ref cant be NULL\n";
+		return;
+	}
 }
 
 
 int main()
-{
-	// B f;
+{	
 	Base *base_t = generate();
 
 		

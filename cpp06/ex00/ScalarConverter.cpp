@@ -6,7 +6,7 @@
 /*   By: hlachhab <hlachhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 21:45:14 by hlachhab          #+#    #+#             */
-/*   Updated: 2025/07/22 19:15:56 by hlachhab         ###   ########.fr       */
+/*   Updated: 2025/07/25 19:52:39 by hlachhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ bool check_pseudo(std::string str)
 	|| str == "nan" || str == "NAN" || str == "-inf" || str == "+inf")
 	{
 		double d = std::strtod(str.c_str(), NULL);
-		// float f = std::strtof(str.c_str(), NULL);
 		std::cout << "char   : impossible" << std::endl;
 		std::cout << "int    : impossible" << std::endl;
 		std::cout << "float  : " << static_cast<float>(d) << "f" << std::endl;
@@ -52,6 +51,7 @@ bool check_pseudo(std::string str)
 
 void ScalarConverter::convert(std::string str)
 {
+	std::cout << "str addresse : " << &str << std::endl;
 	
 	if (str.length() == 1 && !isdigit(str[0]))
 	{
@@ -65,14 +65,10 @@ void ScalarConverter::convert(std::string str)
 	//pseudo strings check
 	if (check_pseudo(str))
 		return;
-	bool f = false;
 
 	//check floating numbers
 	if (isdigit(str[0]) && str.back() == 'f')
-	{
-		f = true;
 		str.pop_back();
-	}
 	
 	//check if there is more characters
 	char *endptr = NULL;

@@ -6,7 +6,7 @@
 /*   By: hlachhab <hlachhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 19:39:42 by hlachhab          #+#    #+#             */
-/*   Updated: 2025/07/23 19:38:42 by hlachhab         ###   ########.fr       */
+/*   Updated: 2025/07/25 19:30:24 by hlachhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ int main()
 	Serializer *a = NULL;
 	Data d;
 	
-	d.age = -10;
-	d.person_name = "name";
 	
 
 	std::cout << "original adress of struct Data : " << &d << std::endl;
@@ -28,6 +26,7 @@ int main()
 	uintptr_t a_ptr = a->serializer(&d);
 	std::cout << "<uintptr_t> value  : " << a_ptr << std::endl;
 	std::cout << "<uintptr_t> adress : " << &a_ptr << std::endl;
+	
 
 
 
