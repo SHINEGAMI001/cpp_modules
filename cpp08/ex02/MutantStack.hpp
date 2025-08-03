@@ -6,7 +6,7 @@
 /*   By: hlachhab <hlachhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 21:47:57 by hlachhab          #+#    #+#             */
-/*   Updated: 2025/08/03 01:40:39 by hlachhab         ###   ########.fr       */
+/*   Updated: 2025/08/03 01:47:12 by hlachhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ class MutantStack: public std::stack<S>{
 			std::cout << "Default Destructer Called\n";
 		}
 
-		//can use in public method from c deque object
+		//can use any public method from c deque object
 		iterator begin(){
 			return stack::c.begin();
 		}
