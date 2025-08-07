@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlachhab <hlachhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/03 21:05:28 by hlachhab          #+#    #+#             */
-/*   Updated: 2025/08/06 23:14:59 by hlachhab         ###   ########.fr       */
+/*   Created: 2025/08/07 01:03:13 by hlachhab          #+#    #+#             */
+/*   Updated: 2025/08/07 04:08:53 by hlachhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
+#include <iostream>
+#include <sstream>
+#include <string>
+#include <stdexcept>
+#include <stack>
 
-#include "BitcoinExchange.hpp"
+class RPN{
+	private:
+		std::stack<int> _number;
 
+	public:
+		RPN();
+		RPN(const RPN &other);
+		~RPN();
 
-int main(int ac, char **av){
-	
-	if (ac != 2)
-		return (std::cerr << "error: invalid arguments\n", 1);
-	try{
-		BitcoinExchange btc;
-		btc.execute(av[1]);
+	void evaluate(std::string input);
 
-	}catch(std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
+		
+			
+};
 
-	
-	return 0;
-	
-}
+int do_the_math(char op, int a, int b);

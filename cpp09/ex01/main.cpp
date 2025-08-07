@@ -5,29 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlachhab <hlachhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/03 21:05:28 by hlachhab          #+#    #+#             */
-/*   Updated: 2025/08/06 23:14:59 by hlachhab         ###   ########.fr       */
+/*   Created: 2025/08/07 01:02:57 by hlachhab          #+#    #+#             */
+/*   Updated: 2025/08/07 04:19:50 by hlachhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include "BitcoinExchange.hpp"
-
+#include "RPN.hpp"
 
 int main(int ac, char **av){
-	
-	if (ac != 2)
-		return (std::cerr << "error: invalid arguments\n", 1);
-	try{
-		BitcoinExchange btc;
-		btc.execute(av[1]);
 
-	}catch(std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
+	if (ac > 2){
+		std::cerr << "error: invalid argument number\n";
+		return 1;
+	}
+	
+	RPN rpn_op;
+
+	try{
+		rpn_op.evaluate(av[1]);
+		
+	}catch(std::exception &e){
+
+		std::cerr << e.what() << std::endl;
+		return 1;
 	}
 
-	
 	return 0;
+
 	
 }
