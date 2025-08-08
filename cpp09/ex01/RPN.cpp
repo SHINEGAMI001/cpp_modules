@@ -6,7 +6,7 @@
 /*   By: hlachhab <hlachhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 03:28:26 by hlachhab          #+#    #+#             */
-/*   Updated: 2025/08/07 04:52:03 by hlachhab         ###   ########.fr       */
+/*   Updated: 2025/08/08 06:14:17 by hlachhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,8 @@ int do_the_math(char op, int a, int b){
 		return a * b;
 	else// '/'
 	{
-		if (a == 0 || b == 0)
+		
+		if (a == 0)
 			throw std::runtime_error("Error");
 		else
 			return b / a;

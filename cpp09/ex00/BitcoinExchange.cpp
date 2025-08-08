@@ -6,7 +6,7 @@
 /*   By: hlachhab <hlachhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 23:06:14 by hlachhab          #+#    #+#             */
-/*   Updated: 2025/08/07 01:13:20 by hlachhab         ###   ########.fr       */
+/*   Updated: 2025/08/08 06:29:13 by hlachhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -200,7 +200,7 @@ void BitcoinExchange::multiply_price(std::string date, float f_price){
 	}
 	else
 	{
-		std::map<std::string, float>::iterator it2 = _data.lower_bound(date);
+		std::map<std::string, float>::iterator it2 = _data.lower_bound( date);
 		if (it2 == _data.begin())
 			std::cout << f_price * it2->second << std::endl;
 		else{
